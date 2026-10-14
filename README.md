@@ -35,18 +35,21 @@ body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 ```
+
 📦 Installation
 From WordPress Dashboard:
-Go to Plugins > Add New.
+Go to Plugins -> Add New.
 
 Search for Hide Scrollbar Force.
 
 Click Install Now and Activate.
 
 Via Git:
-```Bash
-git clone [https://github.com/saeedtx/hide-scrollbar-force.git](https://github.com/saeedtx/hide-scrollbar-force.git) wp-content/plugins/hide-scrollbar-force
 ```
+git clone https://github.com/saeedtx/hide-scrollbar-force.git wp-content/plugins/hide-scrollbar-force
+
+```
+
 👤 Author
 Saeed Tosifyan
 
