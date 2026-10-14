@@ -3,10 +3,10 @@ Contributors: saeedtx
 Tags: scrollbar, hide, css, customization
 Requires at least: 5.0
 Tested up to: 7.1.2
-Stable tag: 1.4
+Stable tag: 1.4.1
 Requires PHP: 7.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Hides the scrollbar on your WordPress site while keeping the scroll functionality intact.
 
@@ -18,6 +18,7 @@ Features:
 * Keeps smooth scrolling via mouse wheel, keyboard, and touch fully functional.
 * Lightweight with zero performance overhead (pure inline CSS injection).
 * Compatible with modern page builders and responsive modal popups.
+* Developer-friendly filter hook (`hide_scrollbar_force_enabled`) for conditional loading.
 
 == Installation ==
 1. Upload the `hide-scrollbar-force` folder to the `/wp-content/plugins/` directory, or install it directly via the WordPress Plugin Directory.
@@ -29,9 +30,18 @@ Features:
 No, it only hides the scrollbar visually. Users can still scroll smoothly using mouse wheels, trackpads, touch gestures, or keyboard arrow keys.
 
 = Will it break modal windows or internal scrollable boxes? =
-No, version 1.4 scopes rules strictly to the page viewport (`html, body`) and avoids breaking internal scrollable containers (like code blocks, tables, or modals).
+No, version 1.4+ scopes rules strictly to the page viewport (`html, body`) and avoids breaking internal scrollable containers (like code blocks, tables, or modals).
+
+= Can I disable the plugin on specific pages? =
+Yes, developers can use the `hide_scrollbar_force_enabled` filter in their theme's `functions.php` file. For example:
+`add_filter( 'hide_scrollbar_force_enabled', function( $enabled ) { return ! is_page( 'contact' ); } );`
 
 == Changelog ==
+= 1.4.1 =
+* Fixed Text Domain header to match the official plugin slug (`hide-scrollbar-force`).
+* Added `hide_scrollbar_force_enabled` filter hook for conditional control.
+* Minified inline CSS output and added `function_exists` check to prevent naming collisions.
+
 = 1.4 =
 * Tested and confirmed compatibility with WordPress 7.1.2.
 * Added direct access security check (`ABSPATH`).
@@ -53,5 +63,5 @@ No, version 1.4 scopes rules strictly to the page viewport (`html, body`) and av
 * Initial release.
 
 == Upgrade Notice ==
-= 1.4 =
-Recommended update: Improved compatibility with popups/modals, enhanced security, and full compatibility with WordPress 7.1.2.
+= 1.4.1 =
+Minor maintenance update: Improved coding standards compliance, minified inline CSS, and added a developer filter hook.
